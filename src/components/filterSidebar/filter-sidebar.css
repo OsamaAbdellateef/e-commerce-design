@@ -1,0 +1,26 @@
+.filter-sidebar-container {
+  flex-basis: 40%;
+  margin-right: 2rem;
+}
+
+.filter-sidebar {
+  flex-basis: 25%;
+  background-color: white;
+  margin-right: 1rem;
+  padding: 2.1rem;
+  color: var(--text-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
+}
+
+.filter-sidebar .header {
+  font-weight: 500;
+}
+.filter-sidebar .header:not(:first-child) {
+  margin-top: 3rem;
+}
+
+.filter-sidebar-header {
+  font-weight: 500;
+  padding: 3rem 0;
+}

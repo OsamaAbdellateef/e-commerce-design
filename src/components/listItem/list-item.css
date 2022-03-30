@@ -1,0 +1,20 @@
+.list-item {
+  margin: 2rem 0;
+}
+
+.list-item:hover a {
+  transform: translateX(1rem);
+}
+.list-item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: var(--tran-05);
+}
+
+.list-item a svg {
+  margin-right: 1.5rem;
+  width: 2rem;
+  transform: scale(1.3);
+}

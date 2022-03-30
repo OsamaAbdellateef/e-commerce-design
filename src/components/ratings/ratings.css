@@ -1,0 +1,13 @@
+.ratings-item {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratings-item .rate-item {
+  display: inline-block;
+}
+
+.price {
+  font-size: 1.3rem;
+}

@@ -1,0 +1,78 @@
+.content-header {
+  display: flex;
+  margin: 3rem 0;
+}
+
+.content-header-left {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.content-header-left * {
+  padding-right: 5px;
+}
+
+.content-header-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--text-color);
+  padding-right: 1.2rem;
+  border-right: 1px solid #b3b3b3;
+}
+
+.breadcrumbs a > :not(svg) {
+  color: blue;
+}
+
+.breadcrumbs a,
+span {
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.current-location {
+  color: var(--text-color);
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  padding-left: 1.2rem;
+}
+
+.bc-link {
+  color: rgb(55, 55, 202);
+}
+
+.breadcrumbs svg:not(.home-icon) {
+  transform: scale(1.8);
+  color: var(--text-color);
+}
+
+svg.home-icon {
+  transform: scale(2);
+}
+
+.content-header-right {
+}
+
+.dropdown-btn {
+  width: 40px;
+  height: 40px;
+  color: white;
+  background: #7367f0;
+  border: none;
+  border-radius: 5px;
+  width: 40px;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+
+.dropdown-btn:hover {
+  box-shadow: 0 8px 25px -8px #7367f0;
+}
+
+.dropdown-btn svg {
+  transform: scale(1.3);
+}

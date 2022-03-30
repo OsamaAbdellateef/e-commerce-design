@@ -1,0 +1,33 @@
+.radio-label {
+  position: relative;
+  transform: translateX(2rem);
+}
+
+.radio-input {
+  display: none;
+}
+
+.radio-container {
+  position: relative;
+  margin: 1.6rem 0;
+  padding-left: 0.5rem;
+}
+
+.label-text {
+  padding-left: 2.5rem;
+}
+
+.input-circle {
+  position: absolute;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #7267f049;
+}
+
+.radio-input:checked + .radio-label .input-circle {
+  background-color: #7367f0;
+  box-shadow: 0 2px 4px 0 rgba(115, 103, 240, 0.4);
+}

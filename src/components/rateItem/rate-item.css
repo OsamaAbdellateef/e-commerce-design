@@ -1,0 +1,23 @@
+.stars-container svg {
+  transform: scale(1.4);
+  margin-right: 0.4rem;
+  color: rgb(207, 207, 207);
+}
+
+.stars-container.five {
+}
+.stars-container.one svg:first-child {
+  color: #ffa54e;
+}
+.stars-container.two svg:nth-child(-n + 2) {
+  color: #ffa54e;
+}
+.stars-container.three svg:nth-child(-n + 3) {
+  color: #ffa54e;
+}
+.stars-container.four svg:nth-child(-n + 4) {
+  color: #ffa54e;
+}
+.stars-container.five svg:nth-child(-n + 5) {
+  color: #ffa54e;
+}
