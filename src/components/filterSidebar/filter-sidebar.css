@@ -1,5 +1,5 @@
 .filter-sidebar-container {
-  flex-basis: 40%;
+  min-width: 280px;
   margin-right: 2rem;
 }
 

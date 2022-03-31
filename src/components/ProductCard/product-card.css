@@ -9,6 +9,16 @@
   /* padding: 1.4rem; */
   margin-bottom: 3rem;
   overflow: hidden;
+  transition: var(--tran-03);
+}
+
+.card-container {
+  width: 100%;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 25px 0 rgb(34 41 47 / 25%);
+  transform: translateY(-5px);
 }
 
 .product-card img {
@@ -49,6 +59,10 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+.item-options.row {
+  flex-direction: row !important;
 }
 
 .item-options a {

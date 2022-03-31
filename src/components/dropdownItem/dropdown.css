@@ -7,6 +7,16 @@
   transition: var(--tran-03);
   margin: 2rem 0;
   cursor: pointer;
+
+}
+
+.dropdown-item div {
+        display: flex;
+        align-items: center;
+}
+
+.dropdown-item div a svg:first-child {
+  transform: scale(1.5);
 }
 
 .dropdown-item .expand.sublist {
@@ -25,6 +35,7 @@
   transition: var(--tran-03);
   text-decoration: none;
   color: inherit;
+  display: block;
 }
 .dropdown-item a svg:first-child {
   margin-right: 1rem;
@@ -32,12 +43,11 @@
 }
 
 .arrow-svg {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 1.2rem;
-  transition: var(--tran-03) !important;
-  cursor: pointer;
+      position: absolute;
+      right: 1rem;
+      font-size: 1.2rem;
+      transition: var(--tran-03) !important;
+      cursor: pointer;
 }
 
 .sub-item {
@@ -48,8 +58,8 @@
 .sub-item:hover a {
   transform: translateX(1rem);
 }
-.dropdown-item div:hover a {
-  transform: translateX(1rem);
+.dropdown-item div:hover  a {
+  transform: translateX(1rem) ;
 }
 
 .sub-item a {

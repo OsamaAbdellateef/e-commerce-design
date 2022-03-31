@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import ListItem from "../listItem/ListItem";
 import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
-const DropdownItem = ({ icon, text, subElements, trunc }) => {
+const DropdownItem = ({ icon, text, subElements, trunc, badge }) => {
   const [expand, toggleExpand] = useState(false);
 
   return (
@@ -16,13 +16,18 @@ const DropdownItem = ({ icon, text, subElements, trunc }) => {
       }}
     >
       <div>
-        <a href="#">
+        <a
+          href="#/"
+          onClick={() => {
+            console.log(badge);
+          }}
+        >
           {icon}
           <span className={`item-text ${trunc ? "text-trunc" : " "}`}>
             {text}
           </span>
         </a>
-
+        {badge}
         <ArrowForwardIosOutlinedIcon
           className={`${trunc && "text-trunc"} arrow-svg ${
             expand ? "rotate" : " "

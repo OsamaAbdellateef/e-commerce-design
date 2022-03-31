@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./App.css";
 import Sidebar from "./components/sidebar/Sidebar";
 import Navbar from "./components/navbar/Navbar";
@@ -10,18 +10,27 @@ import Products from "./components/products/Products";
 
 function App() {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
-
+  const [close, toggleClose] = useState(false);
+  const [trunc, toggleTrunc] = useState(false);
+  const [left, toggleLeft] = useState(false);
   return (
     <div className={`App ${darkMode ? "dark-mode" : ""} `}>
-      <Sidebar />
+      <Sidebar
+        left={left}
+        toggleLeft={toggleLeft}
+        close={close}
+        toggleClose={toggleClose}
+        trunc={trunc}
+        toggleTrunc={toggleTrunc}
+      />
 
       <main className="content">
         <div className="container">
-          <Navbar />
+          <Navbar toggleLeft={toggleLeft} close={close} />
           <RowHeader />
           <section className="products-container">
             <FilterSidebar />
-            <Products />
+            <Products close={close} toggleLeft={toggleLeft} />
           </section>
 
           <h1

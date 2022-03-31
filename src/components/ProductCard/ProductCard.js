@@ -3,7 +3,14 @@ import "./product-card.css";
 import Rating from "../rateItem/RateItem";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 
-export const ProductCard = ({ name, price, imgSrc, discription, brand }) => {
+export const ProductCard = ({
+  name,
+  price,
+  imgSrc,
+  discription,
+  brand,
+  close,
+}) => {
   return (
     <div className="product-card">
       <div className="card-container">
@@ -26,7 +33,7 @@ export const ProductCard = ({ name, price, imgSrc, discription, brand }) => {
               : discription}
           </p>
         </div>
-        <div className="item-options">
+        <div className={`item-options ${close && "row"}`}>
           <a href="#">
             <FavoriteBorderOutlinedIcon />
             <span>Wishlist</span>

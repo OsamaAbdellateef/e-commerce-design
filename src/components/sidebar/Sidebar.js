@@ -38,9 +38,14 @@ const navListUserInterface = [
   { icon: <InvertColorsOutlinedIcon />, text: "Colors" },
   { icon: <RemoveRedEyeOutlinedIcon />, text: "Feather" },
 ];
-const Sidebar = () => {
-  const [close, toggleClose] = useState(false);
-  const [trunc, toggleTrunc] = useState(false);
+const Sidebar = ({
+  close,
+  toggleClose,
+  trunc,
+  toggleTrunc,
+  left,
+  toggleLeft,
+}) => {
   return (
     <ResizeObserver
       onResize={(e) => {
@@ -51,25 +56,21 @@ const Sidebar = () => {
         }
       }}
     >
-      <div className={`sidebar ${close && "close"}`}>
-        <SlidebarHeader logo={logo} toggleClose={toggleClose} />
+      <div className={`sidebar ${close && "close"} ${left && "left"}`}>
+        <SlidebarHeader
+          logo={logo}
+          toggleClose={toggleClose}
+          left={left}
+          toggleLeft={toggleLeft}
+        />
         <ul className="main-nav">
-          <li className="nav-item has-sub">
-            <a href="#">
-              <HomeOutlinedIcon
-                className="scale-icon"
-                xs={{ fontSize: "40" }}
-                fontSize="large"
-              />
-              <span className={`${trunc && "text-trunc"} menu-title`}>
-                dashboard
-              </span>
-              <span className={`${trunc && "text-trunc"} badge`}>2</span>
-            </a>
-            <span className={`${trunc && "text-trunc"} arrow`}>
-              <ArrowForwardIosOutlinedIcon />
-            </span>
-          </li>
+          <DropdownItem
+            icon={<HomeOutlinedIcon className="scale-icon" />}
+            text="dashboard"
+            subElements={["eCommerce", "Analytics"]}
+            trunc={trunc}
+            badge={<span className={`${trunc && "text-trunc"} badge`}>2</span>}
+          />
           <HeaderItem trunc={trunc} text="Apps & Pages" />
           {navListAppAndPages.map((element, index) => (
             <ListItem

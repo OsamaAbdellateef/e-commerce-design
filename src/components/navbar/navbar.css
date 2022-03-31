@@ -1,11 +1,19 @@
 .navbar {
   background: white;
   height: 6.2rem;
-  border-radius: 12px;
+  border-radius: 5px;
   padding: 1.3rem 1.7rem;
-  box-shadow: 0 0 6px 4px #00000005;
+  box-shadow: var(--shadow);
   display: flex;
   align-items: center;
+  position: fixed;
+  width: calc(100% - 306px);
+  z-index: 1000;
+  top: 1rem;
+}
+
+.navbar.close {
+  width: calc(100% - 141px);
 }
 
 .nav-left-part {
@@ -33,17 +41,19 @@
 }
 
 .icon-num {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.9rem;
+  height: 1.9rem;
   position: absolute;
-  /* bottom: 0.2rem; */
-  /* right: 0.3rem; */
+
   text-align: center;
   color: white;
   font-weight: 500;
   border-radius: 50%;
   top: -11px;
   right: -4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon-num.bill {
@@ -62,6 +72,10 @@
 
 .navbar .nav-right-part svg {
   transform: scale(1.6);
+}
+
+.nav-item.nav-toggler {
+  display: none;
 }
 
 .nav-item svg.gold {
@@ -169,4 +183,39 @@
   border-radius: 50%;
   right: 0px;
   border: 1px solid white;
+}
+
+@media screen and (max-width: 1200px) {
+ 
+  .navbar {
+      width: calc(100% - 5.6rem);
+    }
+
+  .nav-left-part .navbar-nav .nav-item:not(.nav-toggler) {
+    display: none;
+  }
+  .nav-item.nav-toggler {
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 575px) {
+  
+  .navbar {
+    width: calc(100% - 3rem);
+    padding: 0.3rem 0.7rem;
+  }
+
+  .profile-name {
+    display: none;
+  }
+
+  .container {
+    padding: 1.5rem !important;
+  }
+  .theme-toggler {
+    display: none;
+  }
+
 }

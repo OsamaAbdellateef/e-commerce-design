@@ -7,6 +7,9 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { ProductCard } from "../ProductCard/ProductCard";
 import FeaturedButton from "../featuredButton/FeaturedButton";
 import { MarkEmailUnreadSharp } from "@mui/icons-material";
+import Pagination from "../pagination/Pagination";
+import GridCard from "../gridCard/GridCard";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 
 const products = [
   {
@@ -122,10 +125,11 @@ const staticData = products.map((e) => e);
 
 const mainProd = products;
 
-const Products = () => {
-  const [data, setData] = useState(products);
+const Products = ({ close }) => {
+  const [data, setData] = useState(mainProd);
   const [category, setCategory] = useState("featured");
   const [searchTerm, setSearchTerm] = useState("");
+  const [grid, toggleGrid] = useState(false);
 
   useEffect(() => {
     let filteredData = [];
@@ -165,10 +169,16 @@ const Products = () => {
   return (
     <div className="products">
       <div className="upper-section">
-        <div className="left-part">{data.length} results found</div>
+        <div className="left-part">
+          <span>{data.length} results found</span>
+          <span className="filter-menu">
+            <MenuOutlinedIcon className="filter-sidebar-toggler" />
+          </span>
+        </div>
         <div className="right-part">
           <div className="btns-container">
             <FeaturedButton
+              toggle
               func={setCategory}
               elements={["featured", "lowest", "highest"]}
               comps={
@@ -179,10 +189,20 @@ const Products = () => {
               }
             />
             <div className="two-btns-in-one">
-              <button>
+              <button
+                className={`${!grid && "active"}`}
+                onClick={() => {
+                  toggleGrid(false);
+                }}
+              >
                 <GridViewOutlinedIcon />
               </button>
-              <button>
+              <button
+                className={`${grid && "active"}`}
+                onClick={() => {
+                  toggleGrid(true);
+                }}
+              >
                 <ListOutlinedIcon />
               </button>
             </div>
@@ -199,18 +219,33 @@ const Products = () => {
           <SearchOutlinedIcon />
         </span>
       </div>
-      <div className="product-list">
-        {data.map((p) => (
-          <ProductCard
-            key={p.id}
-            name={p.name}
-            price={p.price}
-            imgSrc={p.img}
-            discription={p.discription}
-            brand={p.brand}
-          />
-        ))}
+      <div className={`product-list ${grid && "full-width"}`}>
+        {data.map((p) =>
+          grid ? (
+            <GridCard
+              key={p.id}
+              name={p.name}
+              price={p.price}
+              imgSrc={p.img}
+              discription={p.discription}
+              brand={p.brand}
+              rate={p.rating}
+            />
+          ) : (
+            <ProductCard
+              key={p.id}
+              name={p.name}
+              price={p.price}
+              imgSrc={p.img}
+              discription={p.discription}
+              brand={p.brand}
+              rate={p.rating}
+              close={close}
+            />
+          )
+        )}
       </div>
+      <Pagination />
     </div>
   );
 };

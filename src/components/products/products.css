@@ -21,14 +21,19 @@
   justify-content: center;
 }
 
-.upper-section button:hover {
-  background-color: rgba(240, 240, 240, 0.856);
+.upper-section button:hover,
+button.active {
+  background-color: rgba(223, 222, 255, 0.938);
 }
 .left-part {
   flex-grow: 1;
   font-size: 1.5rem;
   color: var(--text-color);
   font-weight: 500;
+}
+
+.left-part .filter-menu {
+  display: none;
 }
 
 .btns-container {
@@ -114,6 +119,11 @@ input:focus::-webkit-input-placeholder {
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 2rem;
   margin-top: 2rem;
+}
+
+.product-list.full-width {
+  grid-template-columns: 1fr;
+  row-gap: 3rem;
 }
 
 .btn-text {

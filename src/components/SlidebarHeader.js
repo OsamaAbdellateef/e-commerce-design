@@ -1,6 +1,7 @@
 import React from "react";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
-const SlidebarHeader = ({ logo, toggleClose }) => {
+const SlidebarHeader = ({ logo, toggleClose, toggleLeft }) => {
   return (
     <div className="sidebar-header">
       <ul className="sidebar-nav">
@@ -19,6 +20,14 @@ const SlidebarHeader = ({ logo, toggleClose }) => {
           <span className="outer-circle">
             <span className="inner-circle"></span>
           </span>
+        </li>
+        <li
+          className="nav-item left-toggler"
+          onClick={() => {
+            toggleLeft((t) => !t);
+          }}
+        >
+          <CloseOutlinedIcon />
         </li>
       </ul>
     </div>
