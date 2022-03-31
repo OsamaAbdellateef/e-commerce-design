@@ -45,6 +45,7 @@ const Sidebar = ({
   toggleTrunc,
   left,
   toggleLeft,
+  darkMode,
 }) => {
   return (
     <ResizeObserver
@@ -56,7 +57,11 @@ const Sidebar = ({
         }
       }}
     >
-      <div className={`sidebar ${close && "close"} ${left && "left"}`}>
+      <div
+        className={`sidebar ${close && "close"} ${left && "left"} ${
+          darkMode && "dark"
+        }`}
+      >
         <SlidebarHeader
           logo={logo}
           toggleClose={toggleClose}

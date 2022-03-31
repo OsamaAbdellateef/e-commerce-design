@@ -1,3 +1,7 @@
+.dark .grid-card {
+  background-color: var(--dark-theme) !important;
+}
+
 .grid-card {
   background: white;
   border-radius: 5px;
@@ -16,7 +20,6 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   align-items: center;
-  background: white;
   border-radius: 5px;
   transition: var(--tran-03);
   column-gap: 1rem;
@@ -28,7 +31,7 @@
 }
 
 .grid-card img {
- width: 100%;
+  width: 100%;
 }
 
 .card-text {
@@ -70,10 +73,17 @@
   margin: 1rem 0;
 }
 
-.card-options a:last-of-type:hover {
+.dark .card-options a:first-of-type {
+  background-color: #161d31;
 }
 
 .card-options a:last-of-type {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.card-options a:last-of-type span,
+.card-options a:last-of-type svg {
   background-color: var(--primary-color);
   color: white;
 }

@@ -89,6 +89,10 @@ button.active {
   box-shadow: 0 2px 8px 0 rgb(34 41 47 / 14%);
 }
 
+.products.dark .search-input input {
+  background-color: var(--dark-theme);
+}
+
 .search-input input:focus {
   outline: none;
 }

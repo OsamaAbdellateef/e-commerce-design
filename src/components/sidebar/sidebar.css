@@ -3,9 +3,7 @@
   top: 0;
   top: 0;
   left: 250px;
-  height: 100vh;
   width: calc(100% - 250px);
-
   transition: var(--tran-05);
 }
 
@@ -29,7 +27,9 @@
   overflow-y: auto;
 }
 
-
+.sidebar.dark {
+  background-color: var(--dark-theme);
+}
 
 .sidebar.left {
   left: 0 !important;
@@ -37,7 +37,8 @@
 
 .sidebar.close {
   width: 85px;
-padding: 0.35rem 1rem 0.6rem 2.3rem;}
+  padding: 0.35rem 1rem 0.6rem 2.3rem;
+}
 
 .sidebar.close ~ .content {
   left: 85px;
@@ -53,13 +54,6 @@ padding: 0.35rem 1rem 0.6rem 2.3rem;}
 
 .sidebar-header {
   margin-top: 2.5rem;
-}
-
-.sidebar-header .left-toggler {
-  transform: scale(1.3);
-  color: var(--primary-color);
-  cursor: pointer;
-  display: none;
 }
 
 .sidebar-nav {
@@ -121,7 +115,7 @@ padding: 0.35rem 1rem 0.6rem 2.3rem;}
   margin-top: 4rem;
   list-style: none;
   font-size: 1.6rem;
-  padding-left:0.8rem ;
+  padding-left: 0.8rem;
 }
 
 .main-nav .nav-item {
@@ -198,6 +192,9 @@ padding: 0.35rem 1rem 0.6rem 2.3rem;}
   background-color: rgb(209, 209, 209); /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 3px solid white; /* creates padding around scroll thumb */
-  height: 1rem !important;
 }
-
+.sidebar.dark::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 148, 148, 0.377);
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid rgba(133, 133, 133, 0.781); /* creates padding around scroll thumb */
+}

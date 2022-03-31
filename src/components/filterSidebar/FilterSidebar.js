@@ -66,9 +66,9 @@ const brands = {
   name: "brands",
 };
 
-const FilterSidebar = () => {
+const FilterSidebar = ({ darkMode }) => {
   return (
-    <div className="filter-sidebar-container">
+    <div className={`filter-sidebar-container ${darkMode && "dark"}`}>
       <h1 className="filter-sidebar-header">Filter</h1>
       <div className="filter-sidebar">
         <h1 className="header">Multi Range</h1>

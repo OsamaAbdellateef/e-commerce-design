@@ -125,7 +125,7 @@ const staticData = products.map((e) => e);
 
 const mainProd = products;
 
-const Products = ({ close }) => {
+const Products = ({ close, darkMode }) => {
   const [data, setData] = useState(mainProd);
   const [category, setCategory] = useState("featured");
   const [searchTerm, setSearchTerm] = useState("");
@@ -167,7 +167,7 @@ const Products = ({ close }) => {
   }, [searchTerm, category]);
 
   return (
-    <div className="products">
+    <div className={`products ${darkMode && "dark"}`}>
       <div className="upper-section">
         <div className="left-part">
           <span>{data.length} results found</span>
@@ -219,7 +219,10 @@ const Products = ({ close }) => {
           <SearchOutlinedIcon />
         </span>
       </div>
-      <div className={`product-list ${grid && "full-width"}`}>
+      {/*Mapping through the cards*/}
+      <div
+        className={`product-list ${grid && "full-width"} ${darkMode && "dark"}`}
+      >
         {data.map((p) =>
           grid ? (
             <GridCard

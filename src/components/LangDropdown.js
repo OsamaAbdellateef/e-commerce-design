@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const LangDropdown = ({ langueges, currentLang, setCurrentLang }) => {
   const [drop, toggleDrop] = useState(false);
-  useEffect(() => {
-    window.onclick = () => {
-      console.log("guuuu");
-    };
-  }, []);
+
   return (
     <>
       <li

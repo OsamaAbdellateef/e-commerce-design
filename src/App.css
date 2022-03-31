@@ -14,7 +14,7 @@ body {
 }
 
 .App.dark-mode {
-  color: white;
+  color: rgb(173, 173, 173);
   background-color: black;
   transition: var(--tran-03);
 }
@@ -23,8 +23,26 @@ body {
   padding: 2.8rem;
 }
 
+.dark .container {
+  background-color: #191f30;
+}
+
 .products-container {
   display: flex;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  top: 0;
+  left: 250px;
+  transition: var(--tran-03);
+  width: calc(100% - 250px);
+  transition: var(--tran-05);
+}
+
+.content.dark {
+  background-color: #191f30;
 }
 
 /* input radio button */
@@ -39,7 +57,7 @@ body {
   }
 
   .left-toggler {
-    display: block !important;
+    display: block;
   }
 
   .nav-item.nav-toggler {
@@ -53,8 +71,8 @@ body {
 }
 
 @media screen and (max-width: 992px) {
-  .filter-sidebar-header {
-    display: none !important;
+  .filter-sidebar-container {
+    display: none;
   }
 
   .left-part span:not(.filter-menu) {

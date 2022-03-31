@@ -27,6 +27,10 @@
   border: 1px solid #7267f049;
 }
 
+.dark .input-circle {
+  background-color: transparent;
+}
+
 .radio-input:checked + .radio-label .input-circle {
   background-color: #7367f0;
   box-shadow: 0 2px 4px 0 rgba(115, 103, 240, 0.4);
