@@ -121,47 +121,52 @@ const products = [
     colors: ["red", "purple", "green"],
   },
 ];
-const staticData = products.map((e) => e);
-
-const mainProd = products;
 
 const Products = ({ close, darkMode }) => {
-  const [data, setData] = useState(mainProd);
+  const [data, setData] = useState(products);
   const [category, setCategory] = useState("featured");
   const [searchTerm, setSearchTerm] = useState("");
   const [grid, toggleGrid] = useState(false);
 
+  const sortHighest = (data) => {
+    let sortedData = data.sort((a, b) => b.price - a.price);
+    setData([...sortedData]);
+  };
+
+  const sortLowest = (data) => {
+    let sortedData = data.sort((a, b) => a.price - b.price);
+    setData([...sortedData]);
+  };
+
   useEffect(() => {
-    let filteredData = [];
+    var filteredData = [];
     if (searchTerm) {
       filteredData = products.filter((p) =>
         p.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
+
       if (category === "featured") {
-        console.log("filteredData:", filteredData);
-        setData([...filteredData]);
+        setData([
+          ...(filteredData = products.filter((p) =>
+            p.name.toLowerCase().includes(searchTerm.toLowerCase())
+          )),
+        ]);
       } else if (category === "highest") {
-        let sortedData = filteredData.sort((a, b) => b.price - a.price);
-        console.log("highestDvdfgata: ", sortedData);
-        setData([...sortedData]);
-      } else if (category === "lowest") {
-        console.log("lowest");
-        let sosrtedData = filteredData.sort((a, b) => a.price - b.price);
-        console.log(sosrtedData);
-        setData([...sosrtedData]);
+        sortHighest(filteredData);
+      } else {
+        sortLowest(filteredData);
       }
+      console.log("Filtered Data : ", filteredData);
     } else {
+      let copy = [...products];
       if (category === "featured") {
-        setData(staticData);
+        setData(products);
+        console.log("featured");
       } else if (category === "highest") {
-        let sortedData = products.sort((a, b) => b.price - a.price);
-        console.log("highestDvdfgata: ", sortedData);
+        sortHighest(copy);
+      } else {
+        let sortedData = copy.sort((a, b) => a.price - b.price);
         setData([...sortedData]);
-      } else if (category === "lowest") {
-        console.log("lowest");
-        let sosrtedData = products.sort((a, b) => a.price - b.price);
-        console.log(sosrtedData);
-        setData([...sosrtedData]);
       }
     }
   }, [searchTerm, category]);
@@ -170,7 +175,13 @@ const Products = ({ close, darkMode }) => {
     <div className={`products ${darkMode && "dark"}`}>
       <div className="upper-section">
         <div className="left-part">
-          <span>{data.length} results found</span>
+          <span
+            onClick={() => {
+              console.log(products);
+            }}
+          >
+            {data.length} results found
+          </span>
           <span className="filter-menu">
             <MenuOutlinedIcon className="filter-sidebar-toggler" />
           </span>
